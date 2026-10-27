@@ -1,0 +1,209 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Mi Perfil',
+      theme: ThemeData(useMaterial3: true),
+      home: const PerfilPage(),
+    );
+  }
+}
+
+class PerfilPage extends StatelessWidget {
+  const PerfilPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+
+        // Fondo personalizado
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color(0xFF101820), Color(0xFF1B263B), Color(0xFF415A77)],
+          ),
+        ),
+
+        child: SafeArea(
+          child: Center(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(24),
+
+              child: Card(
+                elevation: 15,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
+                ),
+
+                child: Padding(
+                  padding: const EdgeInsets.all(28),
+
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // Avatar
+                      const CircleAvatar(
+                        radius: 60,
+                        backgroundColor: Color(0xFF1B263B),
+                        child: Icon(
+                          Icons.person,
+                          size: 70,
+                          color: Colors.white,
+                        ),
+                      ),
+
+                      const SizedBox(height: 20),
+
+                      // Nombre
+                      const Text(
+                        'Edwin Javier\nHernández Herrera',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF101820),
+                        ),
+                      ),
+
+                      const SizedBox(height: 12),
+
+                      // Carrera
+                      const Text(
+                        'Ingeniería en Tecnologías\nde la Información',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 17,
+                          color: Colors.black54,
+                          height: 1.4,
+                        ),
+                      ),
+
+                      const SizedBox(height: 8),
+
+                      // Universidad
+                      const Text(
+                        'Universidad Politécnica de Gómez Palacio',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 14, color: Colors.black45),
+                      ),
+
+                      const SizedBox(height: 25),
+
+                      const Divider(),
+
+                      const SizedBox(height: 15),
+
+                      // Sobre mí
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Sobre mí',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 10),
+
+                      const Text(
+                        'Estudiante interesado en el desarrollo de software, '
+                        'tecnologías de la información y desarrollo de aplicaciones.',
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(
+                          fontSize: 15,
+                          height: 1.5,
+                          color: Colors.black87,
+                        ),
+                      ),
+
+                      const SizedBox(height: 25),
+
+                      // Redes sociales
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Mis redes',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 15),
+
+                      // GitHub
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton.icon(
+                          onPressed: () {},
+                          icon: const Icon(Icons.code),
+                          label: const Text(
+                            'GitHub',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(vertical: 14),
+                            backgroundColor: const Color(0xFF101820),
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 12),
+
+                      // LinkedIn / contacto
+                      SizedBox(
+                        width: double.infinity,
+                        child: OutlinedButton.icon(
+                          onPressed: () {},
+                          icon: const Icon(Icons.link),
+                          label: const Text(
+                            'Mi perfil profesional',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          style: OutlinedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(vertical: 14),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 20),
+
+                      // Pie
+                      const Text(
+                        'Aplicaciones Móviles • 2026',
+                        style: TextStyle(fontSize: 12, color: Colors.black38),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
